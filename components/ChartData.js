@@ -7,7 +7,6 @@ class ChartData extends React.Component {
     }
 
     componentWillMount() {
-        console.log(this.props)
         this.setState({
             datasets: [
                 {
@@ -28,11 +27,13 @@ class ChartData extends React.Component {
         let _this = this
 
         setInterval(() => {
-            var oldDataSet = _this.state.datasets[0];
-            var newData = [];
+            var oldDataSet = _this.state.datasets[0]
+            var newLabel = []
+            var newData = []
 
-            this.props.item[1].forEach(val => {
-                newData.push(val);
+            this.props.item?.forEach(val => {
+                newLabel.push(val.country)
+                newData.push(val.infected)
             });
 
             var newDataSet = {
@@ -41,10 +42,10 @@ class ChartData extends React.Component {
 
             newDataSet.data = newData;
             _this.setState({
-                labels: this.props.item[0],
+                labels: newLabel,
                 datasets: [newDataSet]
-            });
-        }, 500);
+            })
+        }, 500)
     }
 
     render() {
