@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import useHistoricalData from '../actions/useHistoricalData'
-import ChartData from '../components/ChartData'
 import ChartRender from '../components/ChartRender'
 import ChartContext from '../context/ChartContext'
 
